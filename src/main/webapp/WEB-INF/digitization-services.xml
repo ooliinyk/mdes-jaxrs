@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
+
+    <bean id="com.cts.mdesemu.reject.noMapping" class="com.cts.mdesemu.jaxrs.RejectingException">
+        <constructor-arg type="java.lang.String" index="0"
+                         value="INVALID_FIELD_VALUE"/>
+        <constructor-arg type="java.lang.String" index="1"
+                         value="Invalid Field Value - {accountNumber}"/>
+    </bean>
+
+    <bean id="com.cts.mdesemu.jaxrs.digitization.notify.NotifyProvisioningResultService"
+          class="com.cts.mdesemu.jaxrs.provision.notify.NotifyProvisioningResultService">
+    </bean>
+
+    <bean id="com.cts.mdesemu.digitization.checkEligibilityService"
+          class="com.cts.mdesemu.jaxrs.digitization.impl.CheckEligibilityService">
+        <property name="cardInfoDataResolver">
+            <bean
+                    class="com.cts.mdesemu.jaxrs.digitization.impl.CardInfoDataNoEncryptionResolver">
+            </bean>
+        </property>
+        <property name="config">
+            <bean
+                    class="com.cts.mdesemu.jaxrs.digitization.chel.CheckEligibilityConfig">
+                <property name="noMappingException" ref="com.cts.mdesemu.reject.noMapping"/>
+                <property name="responseMapAsResources">
+                    <map>
+                        <!-- need a lots of sucess configurations to create a lot of digitize-responses -->
+                        <entry key="555566" value="C:\work\success.json"/>
+                        <entry key="555577"
+                               value="C:\work\cryptoerr.json"/>
+                    </map>
+                </property>
+            </bean>
+        </property>
+    </bean>
+</beans>
