@@ -3,7 +3,7 @@ package com.cts.mdesemu.jaxrs.provision.impl;
 import com.cts.mdesemu.jaxrs.RejectingException;
 import com.cts.mdesemu.jaxrs.ServiceWrapper;
 import com.cts.mdesemu.jaxrs.provision.dictionary.Errors;
-import com.cts.mdesemu.jaxrs.provision.dictionary.notify.NotifyProvisioningResultConfig;
+import com.cts.mdesemu.jaxrs.provision.notify.NotifyProvisioningResultConfig;
 import com.cts.mdesemu.jaxrs.provision.dictionary.notify.NotifyProvisioningResultRequest;
 import com.cts.mdesemu.jaxrs.provision.dictionary.notify.NotifyProvisioningResultResponse;
 import org.apache.commons.logging.Log;

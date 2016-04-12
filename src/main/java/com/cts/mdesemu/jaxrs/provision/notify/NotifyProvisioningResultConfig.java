@@ -1,7 +1,9 @@
-package com.cts.mdesemu.jaxrs.provision.dictionary.notify;
+package com.cts.mdesemu.jaxrs.provision.notify;
 
 import com.cts.mdesemu.jaxrs.JsonObjectMapper;
 import com.cts.mdesemu.jaxrs.digitization.CommonDigitizationConfig;
+import com.cts.mdesemu.jaxrs.provision.dictionary.notify.NotifyProvisioningResultRequest;
+import com.cts.mdesemu.jaxrs.provision.dictionary.notify.NotifyProvisioningResultResponse;
 
 import java.io.IOException;
 
