@@ -1,4 +1,4 @@
-package com.cts.mdesemu.jaxrs.provision.notify;
+package com.cts.mdesemu.jaxrs.provision.dictionary.notify;
 
 import com.cts.mdesemu.jaxrs.JsonObjectMapper;
 import com.cts.mdesemu.jaxrs.digitization.CommonDigitizationConfig;

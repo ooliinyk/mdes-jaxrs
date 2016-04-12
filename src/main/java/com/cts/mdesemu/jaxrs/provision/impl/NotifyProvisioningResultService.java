@@ -1,7 +1,11 @@
-package com.cts.mdesemu.jaxrs.provision.notify;
+package com.cts.mdesemu.jaxrs.provision.impl;
 
 import com.cts.mdesemu.jaxrs.RejectingException;
 import com.cts.mdesemu.jaxrs.ServiceWrapper;
+import com.cts.mdesemu.jaxrs.provision.dictionary.Errors;
+import com.cts.mdesemu.jaxrs.provision.dictionary.notify.NotifyProvisioningResultConfig;
+import com.cts.mdesemu.jaxrs.provision.dictionary.notify.NotifyProvisioningResultRequest;
+import com.cts.mdesemu.jaxrs.provision.dictionary.notify.NotifyProvisioningResultResponse;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -32,10 +36,10 @@ public class NotifyProvisioningResultService extends ServiceWrapper<NotifyProvis
             this.logger.debug("Processing request: " + request);
         }
 
-        if (request == null)
+        if (request == null){
             throw new RejectingException(
                     RejectingException.ERROR_CODE.INVALID_JSON.name(),
-                    "Empty (null) request");
+                    "Empty (null) request");}
 
         if (request.getResult().equals("ERROR")) {
 //            DO smth

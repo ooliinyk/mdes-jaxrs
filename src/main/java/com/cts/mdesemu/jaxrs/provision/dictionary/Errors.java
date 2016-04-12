@@ -1,4 +1,4 @@
-package com.cts.mdesemu.jaxrs.provision.notify;
+package com.cts.mdesemu.jaxrs.provision.dictionary;
 
 import java.io.Serializable;
 

@@ -17,7 +17,7 @@
 	<jaxrs:server id="services" address="">
 		<jaxrs:serviceBeans>
 			<bean class="com.cts.mdesemu.jaxrs.digitization.DigitizationService" />
-			<bean class="com.cts.mdesemu.jaxrs.provision.notify.NotifyProvService" />
+			<bean class="com.cts.mdesemu.jaxrs.provision.NotifyProvService" />
 		</jaxrs:serviceBeans>
 		<jaxrs:providers>
 			<bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider">

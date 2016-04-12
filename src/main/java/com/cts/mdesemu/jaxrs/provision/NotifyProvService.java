@@ -1,5 +1,8 @@
-package com.cts.mdesemu.jaxrs.provision.notify;
+package com.cts.mdesemu.jaxrs.provision;
 
+import com.cts.mdesemu.jaxrs.provision.dictionary.notify.NotifyProvisioningResultRequest;
+import com.cts.mdesemu.jaxrs.provision.dictionary.notify.NotifyProvisioningResultResponse;
+import com.cts.mdesemu.jaxrs.provision.impl.NotifyProvisioningResultService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.*;
@@ -10,7 +13,7 @@ import javax.ws.rs.core.Response;
  * Created by user on 07.04.2016.
  */
 
-@Path("/provision")
+@Path("/credentials/1/0")
 public class NotifyProvService {
 
     @Autowired

@@ -11,8 +11,8 @@
                          value="Invalid Field Value - {accountNumber}"/>
     </bean>
 
-    <bean id="com.cts.mdesemu.jaxrs.digitization.notify.NotifyProvisioningResultService"
-          class="com.cts.mdesemu.jaxrs.provision.notify.NotifyProvisioningResultService">
+    <bean id="com.cts.mdesemu.jaxrs.provision.impl.NotifyProvisioningResultService"
+          class="com.cts.mdesemu.jaxrs.provision.impl.NotifyProvisioningResultService">
     </bean>
 
     <bean id="com.cts.mdesemu.digitization.checkEligibilityService"

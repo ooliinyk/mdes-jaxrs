@@ -8,8 +8,8 @@ import java.util.List;
 
 import javax.ws.rs.core.Response;
 
-import com.cts.mdesemu.jaxrs.provision.notify.NotifyProvisioningResultRequest;
-import com.cts.mdesemu.jaxrs.provision.notify.NotifyProvisioningResultResponse;
+import com.cts.mdesemu.jaxrs.provision.dictionary.notify.NotifyProvisioningResultRequest;
+import com.cts.mdesemu.jaxrs.provision.dictionary.notify.NotifyProvisioningResultResponse;
 import org.apache.cxf.jaxrs.client.WebClient;
 import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.map.MappingJsonFactory;
@@ -39,13 +39,14 @@ public class DigitizationIT {
 
 		NotifyProvisioningResultRequest request= new NotifyProvisioningResultRequest();
 
-//		request.setRequestId(new SimpleDateFormat("yyDDDHHmmssSS").format(new Date()));
+
+		request.setRequestId(new SimpleDateFormat("yyDDDHHmmssSS").format(new Date()));
 		request.setRequestId("123456");
 		request.setResponseHost("site2.cmsdedicated.com");
 		request.setTokenUniqueReference("D");
 		request.setResult("SUCCESS");
 
-		WebClient client = WebClient.create(endpointUrl	+ "/provision/notifyProvisioningResult", providers);
+		WebClient client = WebClient.create(endpointUrl	+ "/credentials/1/0/notifyProvisioningResult", providers);
 		Response r = client.accept("application/json").type("application/json").post(request);
 		Assert.assertEquals(Response.Status.OK.getStatusCode(), r.getStatus());
 		MappingJsonFactory factory = new MappingJsonFactory();
@@ -77,7 +78,6 @@ public class DigitizationIT {
 		request.getCardInfo().getUnencryptedData().setExpiryYear(20);
 		request.getCardInfo().getUnencryptedData().setSource("CARD_ON_FILE");
 
-//		WebClient client=WebClient.create(endpointUrl	+ "/digitization/1/0/A1/checkEligibility", providers);
 		WebClient client = WebClient.create(endpointUrl	+ "/digitization/1/0/A1/checkEligibility", providers);
 		Response r = client.accept("application/json").type("application/json").post(request);
 		Assert.assertEquals(Response.Status.OK.getStatusCode(), r.getStatus());

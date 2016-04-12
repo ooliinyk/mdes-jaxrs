@@ -1,6 +1,6 @@
-package com.cts.mdesemu.jaxrs.provision.notify;
+package com.cts.mdesemu.jaxrs.provision.dictionary.notify;
 
-import com.cts.mdesemu.jaxrs.CommonMdesRequest;
+import com.cts.mdesemu.jaxrs.provision.dictionary.CommonProvisionRequest;
 
 import java.util.Arrays;
 
