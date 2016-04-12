@@ -5,6 +5,9 @@ import com.cts.mdesemu.jaxrs.ServiceWrapper;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by user on 07.04.2016.
  */
@@ -48,6 +51,21 @@ public class NotifyProvisioningResultService extends ServiceWrapper<NotifyProvis
 
     @Override
     protected NotifyProvisioningResultResponse responseOnError(NotifyProvisioningResultRequest request, RejectingException re) {
-        return null;
+
+        NotifyProvisioningResultResponse response = new NotifyProvisioningResultResponse();
+        if (request != null && request.getRequestId() != null
+                && request.getRequestId().length() > 0) {
+            response.setResponseId(request.getRequestId());
+        } else {
+            response.setResponseId(new SimpleDateFormat("yyDDDHHmmssSS")
+                    .format(new Date()));
+        }
+
+        Errors errors = new Errors();
+        errors.setErrorCode(re.getErrorCode());
+        errors.setErrorDescription(re.getErrorDescription());
+        Errors[] errorses = {errors};
+        response.setErrors(errorses);
+        return response;
     }
 }

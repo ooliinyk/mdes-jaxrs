@@ -9,7 +9,7 @@ import java.util.Arrays;
  * Simplified request source for 3.3.1: Notify Provisioning Result
  * Created by user on 07.04.2016.
  */
-public class NotifyProvisioningResultRequest extends CommonMdesRequest {
+public class NotifyProvisioningResultRequest extends CommonProvisionRequest {
 
 
     private static final long serialVersionUID = 8404820311718893206L;
