@@ -40,12 +40,12 @@ public class DigitizationIT {
 
 		NotifyProvisioningResultRequest request= new NotifyProvisioningResultRequest();
 
-		request.setRequestId("123456");
-		request.setResponseHost("site2.cmsdedicated.com");
-		request.setTokenUniqueReference("D");
-		request.setResult("SUCCESS");
+//		request.setRequestId("123456");
+//		request.setResponseHost("site2.cmsdedicated.com");
+//		request.setTokenUniqueReference("D");
+//		request.setResult("SUCCESS");
 
-		WebClient client = WebClient.create(endpointUrl	+ "/provision/notifyProvisioningResult", providers);
+		WebClient client = WebClient.create(endpointUrl	+ "/credentials/1/0/notifyProvisioningResult", providers);
 		Response r = client.accept("application/json").type("application/json").post(request);
 		Assert.assertEquals(Response.Status.OK.getStatusCode(), r.getStatus());
 		MappingJsonFactory factory = new MappingJsonFactory();
