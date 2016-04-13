@@ -102,6 +102,8 @@ public class CheckEligibilityService extends
 		}
 		response.setErrorCode(re.getErrorCode());
 		response.setErrorDescription(re.getErrorDescription());
+		this.logger.info("Processed request.\n\tRequest details: " + request
+				+ "\n\tResponse details = " + response);
 		return response;
 	}
 

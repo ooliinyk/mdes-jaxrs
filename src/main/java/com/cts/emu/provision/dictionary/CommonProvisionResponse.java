@@ -14,9 +14,7 @@ public class CommonProvisionResponse extends CommonMdesResponse {
 
     private Errors[] errors;
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
+
 
     public Errors[] getErrors() {
         return errors;

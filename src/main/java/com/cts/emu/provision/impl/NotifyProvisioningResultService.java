@@ -36,19 +36,34 @@ public class NotifyProvisioningResultService extends ServiceWrapper<NotifyProvis
             this.logger.debug("Processing request: " + request);
         }
 
-        if (request == null){
+        if (request == null) {
             throw new RejectingException(
                     RejectingException.ERROR_CODE.INVALID_JSON.name(),
-                    "Empty (null) request");}
-
-        if (request.getResult().equals("ERROR")) {
-//            DO smth
+                    "Empty (null) request");
         }
+
+        if (request.getTokenUniqueReference() == null) {
+            throw new RejectingException(
+                    RejectingException.ERROR_CODE.MISSING_REQUIRED_FIELD.name(),
+                    "Missing Required Field - {TokenUniqueReference}");
+        }
+
+        if (request.getResult() == null) {
+            throw new RejectingException(
+                    RejectingException.ERROR_CODE.MISSING_REQUIRED_FIELD.name(),
+                    "Missing Required Field - {Result}");
+        }
+
+//        if (request.getResult().equals("ERROR")) {
+////            DO smth
+//        }
+
+
         NotifyProvisioningResultResponse response = new NotifyProvisioningResultResponse();
         response.setResponseHost(request.getResponseHost());
         response.setResponseId(request.getRequestId());
 
-        this.logger.info("Processed request.\n\tRequest details: " + request
+        this.logger.info("Processed request on Error.\n\tRequest details: " + request
                 + "\n\tResponse details = " + response);
         return response;
     }
@@ -70,6 +85,10 @@ public class NotifyProvisioningResultService extends ServiceWrapper<NotifyProvis
         errors.setErrorDescription(re.getErrorDescription());
         Errors[] errorses = {errors};
         response.setErrors(errorses);
+
+        this.logger.info("Processed request.\n\tRequest details: " + request
+                + "\n\tResponse details = " + response);
+
         return response;
     }
 }

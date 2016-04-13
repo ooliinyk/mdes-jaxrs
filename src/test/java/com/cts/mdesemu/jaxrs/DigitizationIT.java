@@ -24,48 +24,48 @@ import com.cts.mdesemu.jaxrs.digitization.dictionary.chel.CheckEligibilityReques
 import com.cts.mdesemu.jaxrs.digitization.dictionary.chel.CheckEligibilityResponse;
 
 public class DigitizationIT {
-	private static String endpointUrl;
+    private static String endpointUrl;
 
-	@BeforeClass
-	public static void beforeClass() {
-		endpointUrl = System.getProperty("service.url");
-	}
-
-
-	@Test
-	public void testNotifyProvisioninResul() throws Exception{
-
-		List<Object> providers = new ArrayList<Object>();
-		providers.add(new org.codehaus.jackson.jaxrs.JacksonJsonProvider());
-
-		NotifyProvisioningResultRequest request= new NotifyProvisioningResultRequest();
-
-		request.setRequestId("123456");
-		request.setResponseHost("site2.cmsdedicated.com");
-		request.setTokenUniqueReference("D");
-		request.setResult("SUCCESS");
-
-		WebClient client = WebClient.create(endpointUrl	+ "/credentials/1/0/notifyProvisioningResult", providers);
-		Response r = client.accept("application/json").type("application/json").post(request);
-		Assert.assertEquals(Response.Status.OK.getStatusCode(), r.getStatus());
-		MappingJsonFactory factory = new MappingJsonFactory();
-		JsonParser parser = factory.createJsonParser((InputStream) r.getEntity());
-		NotifyProvisioningResultResponse response = parser.readValueAs(NotifyProvisioningResultResponse.class);
+    @BeforeClass
+    public static void beforeClass() {
+        endpointUrl = System.getProperty("service.url");
+    }
 
 
-		Assert.assertNotNull("Response is NULL", response);
-		Assert.assertNotNull("ResponseID is null", response.getResponseId());
+//    @Test
+//    public void testNotifyProvisioninResul() throws Exception {
+//
+//        List<Object> providers = new ArrayList<Object>();
+//        providers.add(new org.codehaus.jackson.jaxrs.JacksonJsonProvider());
+//
+//        NotifyProvisioningResultRequest request = new NotifyProvisioningResultRequest();
+//
+//        request.setRequestId("123456");
+//        request.setResponseHost("site2.cmsdedicated.com");
+//        request.setTokenUniqueReference("D");
+//        request.setResult("SUCCESS");
+//
+//        WebClient client = WebClient.create(endpointUrl + "/credentials/1/0/notifyProvisioningResult", providers);
+//        Response r = client.accept("application/json").type("application/json").post(request);
+//        Assert.assertEquals(Response.Status.OK.getStatusCode(), r.getStatus());
+//        MappingJsonFactory factory = new MappingJsonFactory();
+//        JsonParser parser = factory.createJsonParser((InputStream) r.getEntity());
+//        NotifyProvisioningResultResponse response = parser.readValueAs(NotifyProvisioningResultResponse.class);
+//
+//
+//        Assert.assertNotNull("Response is NULL", response);
+//        Assert.assertNotNull("ResponseID is null", response.getResponseId());
+//
+//    }
 
-	}
 
+    @Test
+    public void testCheckEligibility() throws Exception {
 
-	@Test
-	public void testCheckEligibility() throws Exception {
+        List<Object> providers = new ArrayList<Object>();
+        providers.add(new org.codehaus.jackson.jaxrs.JacksonJsonProvider());
 
-		List<Object> providers = new ArrayList<Object>();
-		providers.add(new org.codehaus.jackson.jaxrs.JacksonJsonProvider());
-
-		CheckEligibilityRequest request = new CheckEligibilityRequest();
+        CheckEligibilityRequest request = new CheckEligibilityRequest();
 
 		request.setRequestId(new SimpleDateFormat("yyDDDHHmmssSS").format(new Date()));
 		request.setTokenType("CLOUD");
@@ -77,15 +77,15 @@ public class DigitizationIT {
 		request.getCardInfo().getUnencryptedData().setExpiryYear(20);
 		request.getCardInfo().getUnencryptedData().setSource("CARD_ON_FILE");
 
-		WebClient client = WebClient.create(endpointUrl	+ "/digitization/1/0/A1/checkEligibility", providers);
-		Response r = client.accept("application/json").type("application/json").post(request);
-		Assert.assertEquals(Response.Status.OK.getStatusCode(), r.getStatus());
-		MappingJsonFactory factory = new MappingJsonFactory();
-		JsonParser parser = factory.createJsonParser((InputStream) r.getEntity());
-		CheckEligibilityResponse response = parser.readValueAs(CheckEligibilityResponse.class);
+        WebClient client = WebClient.create(endpointUrl + "/digitization/1/0/A1/checkEligibility", providers);
+        Response r = client.accept("application/json").type("application/json").post(request);
+        Assert.assertEquals(Response.Status.OK.getStatusCode(), r.getStatus());
+        MappingJsonFactory factory = new MappingJsonFactory();
+        JsonParser parser = factory.createJsonParser((InputStream) r.getEntity());
+        CheckEligibilityResponse response = parser.readValueAs(CheckEligibilityResponse.class);
 
-		Assert.assertNotNull("Response is NULL", response);
-		Assert.assertNotNull("ResponseID is null", response.getResponseId());
-		Assert.assertNotNull("EligibilityReceipt is null",	response.getEligibilityReceipt());
-	}
+        Assert.assertNotNull("Response is NULL", response);
+        Assert.assertNotNull("ResponseID is null", response.getResponseId());
+        Assert.assertNotNull("EligibilityReceipt is null", response.getEligibilityReceipt());
+    }
 }
