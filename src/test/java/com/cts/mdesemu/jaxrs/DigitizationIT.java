@@ -8,8 +8,9 @@ import java.util.List;
 
 import javax.ws.rs.core.Response;
 
-import com.cts.mdesemu.jaxrs.provision.dictionary.notify.NotifyProvisioningResultRequest;
-import com.cts.mdesemu.jaxrs.provision.dictionary.notify.NotifyProvisioningResultResponse;
+
+import com.cts.emu.provision.dictionary.notify.NotifyProvisioningResultRequest;
+import com.cts.emu.provision.dictionary.notify.NotifyProvisioningResultResponse;
 import org.apache.cxf.jaxrs.client.WebClient;
 import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.map.MappingJsonFactory;
@@ -39,14 +40,12 @@ public class DigitizationIT {
 
 		NotifyProvisioningResultRequest request= new NotifyProvisioningResultRequest();
 
-
-		request.setRequestId(new SimpleDateFormat("yyDDDHHmmssSS").format(new Date()));
 		request.setRequestId("123456");
 		request.setResponseHost("site2.cmsdedicated.com");
 		request.setTokenUniqueReference("D");
 		request.setResult("SUCCESS");
 
-		WebClient client = WebClient.create(endpointUrl	+ "/credentials/1/0/notifyProvisioningResult", providers);
+		WebClient client = WebClient.create(endpointUrl	+ "/provision/notifyProvisioningResult", providers);
 		Response r = client.accept("application/json").type("application/json").post(request);
 		Assert.assertEquals(Response.Status.OK.getStatusCode(), r.getStatus());
 		MappingJsonFactory factory = new MappingJsonFactory();
@@ -68,7 +67,7 @@ public class DigitizationIT {
 
 		CheckEligibilityRequest request = new CheckEligibilityRequest();
 
- 		request.setRequestId(new SimpleDateFormat("yyDDDHHmmssSS").format(new Date()));
+		request.setRequestId(new SimpleDateFormat("yyDDDHHmmssSS").format(new Date()));
 		request.setTokenType("CLOUD");
 		request.setCardInfo(new CardInfo());
 		request.getCardInfo().setUnencryptedData(new CardInfoData());

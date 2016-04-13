@@ -1,8 +1,8 @@
-package com.cts.mdesemu.jaxrs.provision;
+package com.cts.emu.provision;
 
-import com.cts.mdesemu.jaxrs.provision.dictionary.notify.NotifyProvisioningResultRequest;
-import com.cts.mdesemu.jaxrs.provision.dictionary.notify.NotifyProvisioningResultResponse;
-import com.cts.mdesemu.jaxrs.provision.impl.NotifyProvisioningResultService;
+import com.cts.emu.provision.dictionary.notify.NotifyProvisioningResultRequest;
+import com.cts.emu.provision.impl.NotifyProvisioningResultService;
+import com.cts.emu.provision.dictionary.notify.NotifyProvisioningResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.*;

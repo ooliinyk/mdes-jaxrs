@@ -1,6 +1,6 @@
-package com.cts.mdesemu.jaxrs.provision.dictionary.notify;
+package com.cts.emu.provision.dictionary.notify;
 
-import com.cts.mdesemu.jaxrs.provision.dictionary.CommonProvisionResponse;
+import com.cts.emu.provision.dictionary.CommonProvisionResponse;
 
 /**
  * Simplified response source for 3.3.1: Notify Provisioning Result

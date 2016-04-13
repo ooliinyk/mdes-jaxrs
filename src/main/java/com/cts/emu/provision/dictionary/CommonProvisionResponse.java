@@ -1,4 +1,4 @@
-package com.cts.mdesemu.jaxrs.provision.dictionary;
+package com.cts.emu.provision.dictionary;
 
 import com.cts.mdesemu.jaxrs.CommonMdesResponse;
 

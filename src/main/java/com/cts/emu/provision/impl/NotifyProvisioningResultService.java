@@ -1,11 +1,11 @@
-package com.cts.mdesemu.jaxrs.provision.impl;
+package com.cts.emu.provision.impl;
 
+import com.cts.emu.provision.dictionary.Errors;
+import com.cts.emu.provision.dictionary.notify.NotifyProvisioningResultRequest;
+import com.cts.emu.provision.notify.NotifyProvisioningResultConfig;
 import com.cts.mdesemu.jaxrs.RejectingException;
 import com.cts.mdesemu.jaxrs.ServiceWrapper;
-import com.cts.mdesemu.jaxrs.provision.dictionary.Errors;
-import com.cts.mdesemu.jaxrs.provision.notify.NotifyProvisioningResultConfig;
-import com.cts.mdesemu.jaxrs.provision.dictionary.notify.NotifyProvisioningResultRequest;
-import com.cts.mdesemu.jaxrs.provision.dictionary.notify.NotifyProvisioningResultResponse;
+import com.cts.emu.provision.dictionary.notify.NotifyProvisioningResultResponse;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 

@@ -12,7 +12,7 @@
     </bean>
 
     <bean id="com.cts.mdesemu.jaxrs.provision.impl.NotifyProvisioningResultService"
-          class="com.cts.mdesemu.jaxrs.provision.impl.NotifyProvisioningResultService">
+          class="com.cts.emu.provision.impl.NotifyProvisioningResultService">
     </bean>
 
     <bean id="com.cts.mdesemu.digitization.checkEligibilityService"
